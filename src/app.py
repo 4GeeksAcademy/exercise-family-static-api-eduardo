@@ -32,7 +32,7 @@ def sitemap():
 @app.route('/members', methods=['POST'])
 def add_member():
     new_member = request.get_json()
-    if not new_member.get("first_name") or not new_member.get("lucky_numbers[]"):
+    if not new_member.get("first_name") or not new_member.get("lucky_numbers"):
         return jsonify("Any field cant be empty"), 400
 
     member = jackson_family.add_member(new_member)
